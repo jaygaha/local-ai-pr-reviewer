@@ -130,7 +130,7 @@ class AIReviewer:
                     file_comments = []
 
                     for i, hunk in enumerate(hunks):
-                        progress.update(task, description=f"Reviewing {filename} (Hunk {i+1}/{len(hunks)})...")
+                        progress.update(task, description=f"Reviewing {file_name} (Hunk {i+1}/{len(hunks)})...")
                         review = self.ask_llm(file_name, hunk, is_partial=True)
                         if "LGTM" not in review:
                             file_comments.append(f"**Hunk {i+1}:**\n{review}")
